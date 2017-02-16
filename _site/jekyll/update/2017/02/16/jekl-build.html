@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Hello World</title>
-  <meta name="description" content="this is my First Blog!">
+  <title>使用github+jeklly搭建博客过程记录</title>
+  <meta name="description" content="##准备工作 申请git账号，新建一个git仓库，仓库的名称命名格式为： 账号名称.github.io 比如，我的账号是xinyuan6009，那么我的仓库名称为： xinyuan6009.github.io 本地安装jekll,安装教程请大家自行搜索。安装好jekll后，执行 jekll blog 就会生成je...">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/02/16/jekl-build.html">
   <link rel="alternate" type="application/rss+xml" title="Xinyuan`Blog" href="/feed.xml">
   
   
@@ -65,14 +65,107 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Hello World</h1>
-    <p class="post-meta"><time datetime="2017-01-17T07:00:57+08:00" itemprop="datePublished">Jan 17, 2017</time></p>
+    <h1 class="post-title" itemprop="name headline">使用github+jeklly搭建博客过程记录</h1>
+    <p class="post-meta"><time datetime="2017-02-16T17:29:57+08:00" itemprop="datePublished">Feb 16, 2017</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>this is my First Blog!</p>
+    <p>##准备工作</p>
+<ol>
+  <li>申请git账号，新建一个git仓库，仓库的名称命名格式为：
+账号名称.github.io
+比如，我的账号是xinyuan6009，那么我的仓库名称为：
+xinyuan6009.github.io</li>
+  <li>本地安装jekll,安装教程请大家自行搜索。安装好jekll后，执行
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> jekll blog
+</code></pre>
+    </div>
+    <p>就会生成jekll-base的博客工程结构</p>
+  </li>
+  <li>将生成的blog项目上传到仓库中，访问xinyuan6009.github.io就能看到自己的网站了。</li>
+</ol>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<h2 id="自定义主题">自定义主题</h2>
+<p>刚刚新建的博客项目使用的是jekll默认的主题风格，菜单只有about.我们现在要修改网站标题和菜单项。这时我们就要修改一个比较重要的文件_conf.yml</p>
+
+<ol>
+  <li>打开系统默认主题的目录：</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>open <span class="k">$(</span>bundle show minima<span class="k">)</span>
+</code></pre>
+</div>
+<ol>
+  <li>参考官方文档拷贝修改配置文件
+    <blockquote>
+      <p>Suppose you want to get rid of the gem-based theme and convert it to a regular theme, where all files are present in your Jekyll site directory, with nothing stored in the theme gem.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<blockquote>
+  <p>To do this, copy the files from the theme gem’s directory into your Jekyll site directory. (For example, copy them to /myblog if you created your Jekyll site at /myblog. See the previous section for details.)</p>
+</blockquote>
+
+<blockquote>
+  <p>Then remove references to the theme gem in Gemfile and configuration. For example, to remove minima:</p>
+</blockquote>
+
+<blockquote>
+  <p>Open Gemfile and remove gem “minima”, “~&gt; 2.0”.
+Open _config.yml and remove theme: minima.
+Now bundle update will no longer get updates for the theme gem.</p>
+</blockquote>
+
+<ol>
+  <li>修改_config.yml文件(如添加了自定义导航)</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c">#theme: minima</span>
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+nav:
+  - text: blog
+    url: /index.html
+  - text: resume
+    url: /resume/index.html
+  - text: contact
+    url: /contact/index.html
+  - text: about
+    url: /about/index.html
+</code></pre>
+</div>
+<ol>
+  <li>在项目根目录添加自定义导航菜单对应的配置模板.md 参考系统默认模板about.md,其他菜单的根据需要自行修改</li>
+  <li>修改布局文件中导航菜单的部分逻辑，默认主题的导航文件在_incloud/header.html
+根据我上面的配置，我的布局模板修改如下：</li>
+</ol>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"trigger"</span><span class="nt">&gt;</span>
+        
+          
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/index.html"</span><span class="nt">&gt;</span>blog<span class="nt">&lt;/a&gt;</span>
+          
+        
+          
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/resume/index.html"</span><span class="nt">&gt;</span>resume<span class="nt">&lt;/a&gt;</span>
+          
+        
+          
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/contact/index.html"</span><span class="nt">&gt;</span>contact<span class="nt">&lt;/a&gt;</span>
+          
+        
+          
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"page-link"</span> <span class="na">href=</span><span class="s">"/about/index.html"</span><span class="nt">&gt;</span>about<span class="nt">&lt;/a&gt;</span>
+          
+        
+      <span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
 
   </div>
@@ -80,7 +173,7 @@
   
 
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="/jekyll/update/2017/01/17/welcome-to-jekyll" data-title="Hello World" data-url="/jekyll/update/2017/01/17/welcome-to-jekyll.html"></div>
+        <div class="ds-thread" data-thread-key="/jekyll/update/2017/02/16/jekl-build" data-title="使用github+jeklly搭建博客过程记录" data-url="/jekyll/update/2017/02/16/jekl-build.html"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">

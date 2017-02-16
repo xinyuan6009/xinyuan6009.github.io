@@ -1,5 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-16T16:24:14+08:00</updated><id>http://localhost:4000//</id><title type="html">Xinyuan`Blog</title><subtitle>享受生活·欣赏美
-</subtitle><entry><title type="html">Hello World</title><link href="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Hello World" /><published>2017-01-17T07:00:57+08:00</published><updated>2017-01-17T07:00:57+08:00</updated><id>http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html">&lt;p&gt;this is my First Blog!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-16T21:56:44+08:00</updated><id>http://localhost:4000//</id><title type="html">Xinyuan`Blog</title><subtitle>享受生活·欣赏美
+</subtitle><entry><title type="html">使用github+jeklly搭建博客过程记录</title><link href="http://localhost:4000/jekyll/update/2017/02/16/jekl-build.html" rel="alternate" type="text/html" title="使用github+jeklly搭建博客过程记录" /><published>2017-02-16T17:29:57+08:00</published><updated>2017-02-16T17:29:57+08:00</updated><id>http://localhost:4000/jekyll/update/2017/02/16/jekl-build</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/02/16/jekl-build.html">&lt;p&gt;##准备工作&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;申请git账号，新建一个git仓库，仓库的名称命名格式为：
+账号名称.github.io
+比如，我的账号是xinyuan6009，那么我的仓库名称为：
+xinyuan6009.github.io&lt;/li&gt;
+  &lt;li&gt;本地安装jekll,安装教程请大家自行搜索。安装好jekll后，执行
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; jekll blog
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+    &lt;p&gt;就会生成jekll-base的博客工程结构&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;将生成的blog项目上传到仓库中，访问xinyuan6009.github.io就能看到自己的网站了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;自定义主题&quot;&gt;自定义主题&lt;/h2&gt;
+&lt;p&gt;刚刚新建的博客项目使用的是jekll默认的主题风格，菜单只有about.我们现在要修改网站标题和菜单项。这时我们就要修改一个比较重要的文件_conf.yml&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打开系统默认主题的目录：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;open &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;bundle show minima&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;参考官方文档拷贝修改配置文件
+    &lt;blockquote&gt;
+      &lt;p&gt;Suppose you want to get rid of the gem-based theme and convert it to a regular theme, where all files are present in your Jekyll site directory, with nothing stored in the theme gem.&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To do this, copy the files from the theme gem’s directory into your Jekyll site directory. (For example, copy them to /myblog if you created your Jekyll site at /myblog. See the previous section for details.)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Then remove references to the theme gem in Gemfile and configuration. For example, to remove minima:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Open Gemfile and remove gem “minima”, “~&amp;gt; 2.0”.
+Open _config.yml and remove theme: minima.
+Now bundle update will no longer get updates for the theme gem.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;修改_config.yml文件(如添加了自定义导航)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#theme: minima&lt;/span&gt;
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+nav:
+  - text: blog
+    url: /index.html
+  - text: resume
+    url: /resume/index.html
+  - text: contact
+    url: /contact/index.html
+  - text: about
+    url: /about/index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;在项目根目录添加自定义导航菜单对应的配置模板.md 参考系统默认模板about.md,其他菜单的根据需要自行修改&lt;/li&gt;
+  &lt;li&gt;修改布局文件中导航菜单的部分逻辑，默认主题的导航文件在_incloud/header.html
+根据我上面的配置，我的布局模板修改如下：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;trigger&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        
+          
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/index.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;blog&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+          
+        
+          
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/resume/index.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;resume&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+          
+        
+          
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/contact/index.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;contact&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+          
+        
+          
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/about/index.html&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;about&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+          
+        
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">##准备工作
+
+  申请git账号，新建一个git仓库，仓库的名称命名格式为：
+账号名称.github.io
+比如，我的账号是xinyuan6009，那么我的仓库名称为：
+xinyuan6009.github.io
+  本地安装jekll,安装教程请大家自行搜索。安装好jekll后，执行
+     jekll blog
+
+    
+    就会生成jekll-base的博客工程结构
+  
+  将生成的blog项目上传到仓库中，访问xinyuan6009.github.io就能看到自己的网站了。</summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Hello World" /><published>2017-01-17T07:00:57+08:00</published><updated>2017-01-17T07:00:57+08:00</updated><id>http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html">&lt;p&gt;this is my First Blog!&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;</content><summary type="html">this is my First Blog!</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-01-17T07:00:57+08:00</published><updated>2017-01-17T07:00:57+08:00</updated><id>http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/01/17/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
