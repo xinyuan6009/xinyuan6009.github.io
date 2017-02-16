@@ -3,13 +3,10 @@ layout: page
 title: About
 permalink: /about/
 ---
+转眼毕业多年，蹉跎于职场之中，每天忙于生计，麻木与现实，儿时的一些幻想慢慢跌落。理想的图画开始多了写冷色调。
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+然而，我又不甘于此，人生数载，希望可以活出色彩，活出自己的style
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+所以，生活中也会折腾折腾。偶尔也会写写文章，一直想找个适合自己抒发的平台，工作之余，用闲暇时间搭建了这个博客。希望她能在记录我的同时，也能取悦大家。
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+
