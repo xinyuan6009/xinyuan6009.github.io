@@ -8,7 +8,7 @@ permalink: /resume/
 
  - Zheng Yuanyuan/male/1989 
  - Bachelor of Science(B.S.)/East China Institute of Technology
- - Work seniority：4+(years)
+ - Work seniority：5+(years)
  - Blog：http://xinyuan6009.github.io 
  - Github：http://github.com/xinyuan6009 
  - Company: Alibaba·菜鸟网络
@@ -17,8 +17,8 @@ permalink: /resume/
 
 # Contact
 
-- Email：xinyuan6009@yeah.net 
-- WeChart：xinyuan528
+- Email：iworkvip@gmail.com
+- WeChart：Xinyuan5002
 
 ---
 

@@ -36,8 +36,6 @@ nav:
     url: /index.html
   - text: resume
     url: /resume/index.html
-  - text: contact
-    url: /contact/index.html
   - text: about
     url: /about/index.html
 
