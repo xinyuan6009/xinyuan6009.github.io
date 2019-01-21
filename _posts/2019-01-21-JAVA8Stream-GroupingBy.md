@@ -50,7 +50,7 @@ categories: 基础
     // classify by sex(male & female) and caculate the count
     // of sex
     persons.stream.collect(Collectors.groupingBy(Person::getSex), counting(), toList)
-``
+```
 
 
 
